@@ -4,7 +4,7 @@ import time
 st.set_page_config(layout="wide")
 
 st.subheader("Dynamic Tabs")
-st.markdown('<style>' + open('./style.css').read() + '</style>', unsafe_allow_html=True)
+st.markdown('<style>' + open('./iFrame.css').read() + '</style>', unsafe_allow_html=True)
 
 styles = {'title-of-tab':{'border': 'solid'}} 
 
