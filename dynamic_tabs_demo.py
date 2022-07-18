@@ -69,7 +69,7 @@ elif sidebar_nav == 'Add and delete data functionality':
         with open('data.json', 'w') as f:
             json.dump(new_list_to_store, f) 
 
-    def save_new_tabs_data(selected_tab_title, user_data_loaded data):
+    def save_new_tabs_data(selected_tab_title, user_data_loaded, data):
 
         if not any(d['title'] == selected_tab_title for d in user_tabs): 
             user_data_loaded.append(data)
