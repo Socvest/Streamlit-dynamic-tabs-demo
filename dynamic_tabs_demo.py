@@ -130,9 +130,6 @@ elif sidebar_nav == 'Add and delete data functionality':
                 st.session_state['selBox'] = selBox
                 st.session_state['mulSelBox'] = multSelect
 
-        st.write(st.session_state['foo'])
-
-
         options = ['Hi', 'I', 'am', 'just', 'some', 'random', 'data']
 
         st.selectbox("Choose something", options=options,index=st.session_state['selBox'], key="existing_tab_sel_box")
@@ -159,16 +156,8 @@ elif sidebar_nav == 'Add and delete data functionality':
                         'multi_select_widget': multi_select_box_user_options
                            }}
 
-            ## First check if the database exists. IF not then save it to it.
-            def where_json(file_name):
-                return os.path.exists(file_name)
-
-            if not where_json('data.json'):
-                with open('data.json', 'w') as f:
-                    json.dump([data], f) 
-
-            # if it does exist, we want to update saved values with current values from the current tab
-            elif any(d['title'] == selected_tab_title for d in user_tabs):
+           # if it does exist, we want to update saved values with current values from the current tab
+            if any(d['title'] == selected_tab_title for d in user_tabs):
                 data_to_update = [d for d in user_data_loaded if d['title'] == selected_tab_title][0] 
                 data_to_update['data']['selectBox_widget'] = select_box_index_to_load
                 data_to_update['data']['multi_select_widget'] = multi_select_box_user_options
