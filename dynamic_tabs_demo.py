@@ -1,6 +1,7 @@
 import streamlit as st
 from dynamic_tabs import dynamic_tabs
 import time
+import json
 st.set_page_config(layout="wide")
 
 st.subheader("Dynamic Tabs")
