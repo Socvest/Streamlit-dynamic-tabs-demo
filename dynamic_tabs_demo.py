@@ -6,30 +6,26 @@ st.set_page_config(layout="wide")
 st.subheader("Dynamic Tabs")
 st.markdown('<style>' + open('./iFrame.css').read() + '</style>', unsafe_allow_html=True)
 
-styles = {'title-of-tab':{'border': 'solid'}} 
+sidebar_nav = st.sidebar.radio("Dynamic tabs capabilities", ("General", "Add and delete data functionality"))
 
-if "tabs" not in st.session_state:
-    st.session_state['tabs'] = [{'title':''}]
+if sidebar_nav == 'General':
 
-existing_tabs = [{'title':''}] #[{'title':'Tab 1'}, {'title':'Tab 2'}]
+    styles = {'title-of-tab':{'border': 'solid'}} 
 
-d_tabs = dynamic_tabs(tabTitle=existing_tabs, limitTabs=False, numOfTabs=0, styles=None, key="foo")
+    existing_tabs = [{'title':''}] #[{'title':'Tab 1'}, {'title':'Tab 2'}]
 
-if d_tabs == 0:
-    time.sleep(1)
-    st.info("""Click on a tab to view contents \n - Name tab by clicking in the input area \n - After renaming, click save to save the tab's title \n - To close the tab, hover over the tab click the close button that slides out \n - If there is only one tab, it cannot be closed. """)
-    st.stop()
+    d_tabs = dynamic_tabs(tabTitle=existing_tabs, limitTabs=False, numOfTabs=0, styles=None, key="foo")
 
-elif d_tabs['title'] == "":
-    time.sleep(1)
-    st.title("New Tab")
+    if d_tabs == 0:
+        time.sleep(1)
+        st.info("""Click on a tab to view contents \n - Name tab by clicking in the input area \n - After renaming, click save to save the tab's title \n - To close the tab, hover over the tab click the close button that slides out \n - If there is only one tab, it cannot be closed. """)
+        st.stop()
 
-else:
-    time.sleep(1)
-    title_placeholder = st.empty()
-    title_placeholder.title(d_tabs['title'])
-    if d_tabs['title'] == "":
-        title_placeholder.title('New Tab')
-        st.info("Create new tabs")
-        if d_tabs != "":
-            st.write("Inside tab")
+    elif d_tabs['title'] == "":
+        time.sleep(1)
+        st.title("New Tab")
+
+    else:
+        time.sleep(1)
+        st.title(d_tabs['currentTab']['title'])
+        
