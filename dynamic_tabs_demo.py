@@ -54,8 +54,9 @@ elif sidebar_nav == 'Add and delete data functionality':
 
         return user_tabs_list, user_data_loaded
 
-    def save_new_tab_title(new_title):
+    def save_new_tab_title():
 
+        new_title = st.session_state['foo']['currentTab']['title']
         data = {'title': new_title,
                 'data': {'selectBox_widget':0, 'multi_select_widget':None}}
         with open("./data.json") as json_file:
@@ -116,10 +117,7 @@ elif sidebar_nav == 'Add and delete data functionality':
         if user_data_loaded != False:
 
             if any(d['title'] == st.session_state['foo']['currentTab']['title'] for d in user_tabs) == False:
-
-                new_title = st.session_state['foo']['currentTab']['title']
-
-                save_new_tab_title(new_title)
+                save_new_tab_title()
 
             else:
 
