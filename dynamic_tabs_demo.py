@@ -38,7 +38,7 @@ elif sidebar_nav == 'Add and delete data functionality':
         st.session_state['mulSelBox'] = None
     
     def load_database():
-        with open("data.json") as json_file:
+        with open("./data.json") as json_file:
             user_data_loaded = json.load(json_file)
             if type(user_data_loaded) != list:
                 user_data_loaded = [user_data_loaded]
@@ -57,16 +57,16 @@ elif sidebar_nav == 'Add and delete data functionality':
 
         data = {'title': new_title,
                 'data': {'selectBox_widget':0, 'multi_select_widget':None}}
-        with open("data.json") as json_file:
+        with open("./data.json") as json_file:
             user_data_loaded = json.load(json_file)
             user_data_loaded.append(data)
 
-        with open('data.json', 'w') as f:
+        with open('./data.json', 'w') as f:
             json.dump(user_data_loaded, f) 
 
     def delete_tab(new_list_to_store):            
 
-        with open('data.json', 'w') as f:
+        with open('./data.json', 'w') as f:
             json.dump(new_list_to_store, f) 
 
     def save_new_tabs_data(selected_tab_title, user_data_loaded, data):
@@ -162,7 +162,7 @@ elif sidebar_nav == 'Add and delete data functionality':
                 data_to_update['data']['selectBox_widget'] = select_box_index_to_load
                 data_to_update['data']['multi_select_widget'] = multi_select_box_user_options
 
-                with open('data.json', 'w') as f:
+                with open('./data.json', 'w') as f:
                     json.dump(user_data_loaded, f) 
 
             ## Checking to see if the tab title already exists - if it does then don't append data, we only want to append new data and save it to a database
