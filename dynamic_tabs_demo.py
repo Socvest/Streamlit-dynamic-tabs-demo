@@ -21,7 +21,7 @@ if sidebar_nav == 'General':
         st.info("""Click on a tab to view contents \n - Name tab by clicking in the input area \n - After renaming, click save to save the tab's title \n - To close the tab, hover over the tab click the close button that slides out \n - If there is only one tab, it cannot be closed. """)
         st.stop()
 
-    elif d_tabs['title'] == "":
+    elif d_tabs['currentTab']['title'] == "":
         time.sleep(1)
         st.title("New Tab")
 
