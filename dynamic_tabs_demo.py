@@ -98,7 +98,6 @@ elif sidebar_nav == 'Add and delete data functionality':
         user_data_loaded = False
         user_tabs = [{'title': ""}]
     
-    st.write(user_tabs)
     d_tabs = dynamic_tabs(tabTitle=user_tabs, limitTabs=False, numOfTabs=0, styles=None, key="foo")
 
     if d_tabs == 0:
