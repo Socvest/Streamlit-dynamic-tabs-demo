@@ -75,7 +75,7 @@ elif sidebar_nav == 'Add and delete data functionality':
 
         if not any(d['title'] == selected_tab_title for d in user_tabs): 
             user_data_loaded.append(data)
-            with open('data.json', 'w') as f:
+            with open('./data.json', 'w') as f:
                 json.dump(user_data_loaded, f) 
 
     try:
@@ -88,7 +88,6 @@ elif sidebar_nav == 'Add and delete data functionality':
 
         user_tabs_list = []
         for tabs in user_data_loaded:
-
             title_of_tab = dict([list(tabs.items())[0]])
             user_tabs_list.append(title_of_tab) 
 
@@ -98,7 +97,7 @@ elif sidebar_nav == 'Add and delete data functionality':
         user_data_loaded = False
         user_tabs = [{'title': ""}]
     
-    
+    st.write(user_tabs)
     d_tabs = dynamic_tabs(tabTitle=user_tabs, limitTabs=False, numOfTabs=0, styles=None, key="foo")
 
     if d_tabs == 0:
@@ -116,11 +115,10 @@ elif sidebar_nav == 'Add and delete data functionality':
         st.selectbox("Choose something", options=options, key="new_tab_sel_box", disabled=True)
 
         numbers_to_plot = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 9, 8]
-        ## or
+        
         plot_options = st.multiselect("choose what to plot", options=numbers_to_plot, key='new_tab_mul_select', disabled=True)
         st.info("Please name tab before continuing")
-        st.stop()
-        # st.line_chart(plot_options)  
+        st.stop()  
 
 
     else:
