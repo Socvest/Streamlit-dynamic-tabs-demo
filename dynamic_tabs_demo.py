@@ -32,6 +32,8 @@ if sidebar_nav == 'General':
         
 elif sidebar_nav == 'Add and delete data functionality':
     
+    st.write("View code [here](https://github.com/Socvest/Streamlit-dynamic-tabs-demo/blob/main/Examples/Add%20delete%20tabs)")
+    
     if 'selBox' not in st.session_state:
         st.session_state['selBox'] = 0
     
