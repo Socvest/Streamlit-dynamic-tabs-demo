@@ -79,7 +79,20 @@ elif sidebar_nav == 'Add and delete data functionality':
                 json.dump(user_data_loaded, f) 
 
     try:
-        user_tabs, user_data_loaded = load_database()
+        with open("data.json") as json_file:
+            user_data_loaded = json.load(json_file)
+            if type(user_data_loaded) != list:
+                user_data_loaded = [user_data_loaded]
+            else:
+                user_data_loaded = user_data_loaded
+
+        user_tabs_list = []
+        for tabs in user_data_loaded:
+
+            title_of_tab = dict([list(tabs.items())[0]])
+            user_tabs_list.append(title_of_tab) 
+
+        user_tabs = user_tabs_list
 
     except:
         user_data_loaded = False
