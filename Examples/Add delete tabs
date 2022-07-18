@@ -1,4 +1,3 @@
-def save_new_tab_title():
 import streamlit
 import json
 
