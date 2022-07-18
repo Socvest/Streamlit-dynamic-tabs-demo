@@ -69,7 +69,7 @@ elif sidebar_nav == 'Add and delete data functionality':
         with open('data.json', 'w') as f:
             json.dump(new_list_to_store, f) 
 
-    def save_new_tabs_data(selected_tab_title):
+    def save_new_tabs_data(selected_tab_title, user_data_loaded):
 
         if not any(d['title'] == selected_tab_title for d in user_tabs): 
             user_data_loaded.append(data)
@@ -112,7 +112,7 @@ elif sidebar_nav == 'Add and delete data functionality':
 
         st.title(st.session_state['foo']['currentTab']['title'])
 
-        if user_data_loaded != False: # and st.session_state['load_data']: #st.session_state['clicked_on_existing_tab'] == True:
+        if user_data_loaded != False:
 
             if any(d['title'] == st.session_state['foo']['currentTab']['title'] for d in user_tabs) == False:
 
@@ -167,6 +167,5 @@ elif sidebar_nav == 'Add and delete data functionality':
 
             ## Checking to see if the tab title already exists - if it does then don't append data, we only want to append new data and save it to a database
             else:
-
-                save_new_tabs_data(selected_tab_title)
+                save_new_tabs_data(selected_tab_title, user_data_loaded)
         
