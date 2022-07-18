@@ -15,7 +15,7 @@ if sidebar_nav == 'General':
 
     existing_tabs = [{'title':''}] #[{'title':'Tab 1'}, {'title':'Tab 2'}]
 
-    d_tabs = dynamic_tabs(tabTitle=existing_tabs, limitTabs=False, numOfTabs=0, styles=None, key="foo")
+    d_tabs = dynamic_tabs(tabTitle=existing_tabs, limitTabs=False, numOfTabs=0, styles=None, key="general")
 
     if d_tabs == 0:
         time.sleep(1)
